@@ -11,7 +11,9 @@ const Home = () => {
   useEffect(() => {
     const fetchProducts = async () => {
       try {
-        const response = await axios.get("http://localhost:3000/product");
+        const response = await axios.get(
+          "https://api-fastbuy.onrender.com/product",
+        );
         setFoodItems(response.data.products);
         console.log(response);
       } catch (error) {
@@ -29,7 +31,7 @@ const Home = () => {
     }
     try {
       const response = await axios.post(
-        "http://localhost:3000/pay/intialize",
+        "https://api-fastbuy.onrender.com/pay/intialize",
         {
           productId: id,
         },

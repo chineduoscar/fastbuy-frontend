@@ -26,7 +26,7 @@ export default function Login() {
 
     try {
       const response = await axios.post(
-        "http://localhost:3000/auth/login",
+        "https://api-fastbuy.onrender.com/auth/login",
         formData,
       );
 

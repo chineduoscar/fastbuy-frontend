@@ -14,7 +14,7 @@ const VerifyPayment = () => {
     const confirmPayment = async () => {
       try {
         const payment = await axios.get(
-          `http://localhost:3000/pay/verify/${reference}`,
+          `https://api-fastbuy.onrender.com/pay/verify/${reference}`,
         );
         setStatus(payment.data.data.status);
       } catch (error) {

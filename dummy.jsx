@@ -22,7 +22,7 @@ const VerifyPayment = () => {
         const token = Cookies.get("token");
 
         const response = await axios.get(
-          `http://localhost:3000/pay/verify/${reference}`,
+          `https://api-fastbuy.onrender.com/pay/verify/${reference}`,
           {
             headers: {
               Authorization: `Bearer ${token}`,
