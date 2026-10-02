@@ -3,18 +3,26 @@ import { useSearchParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { ImSpinner2 } from "react-icons/im";
+import Cookies from "js-cookie";
 
 const VerifyPayment = () => {
   const [searchParams] = useSearchParams();
   const [status, setStatus] = useState("loading");
 
   const reference = searchParams.get("reference");
+  const token = Cookies.get("token");
 
   useEffect(() => {
     const confirmPayment = async () => {
       try {
         const payment = await axios.get(
           `https://api-fastbuy.onrender.com/pay/verify/${reference}`,
+          {
+            headers: {
+              "Content-Type": "application/json",
+              Authorization: `Bearer ${token}`,
+            },
+          },
         );
         setStatus(payment.data.data.status);
       } catch (error) {
@@ -23,7 +31,7 @@ const VerifyPayment = () => {
     };
 
     confirmPayment();
-  }, [reference]);
+  }, [reference, token]);
 
   return (
     <div className="flex items-center justify-center flex-col min-h-[80vh]">
