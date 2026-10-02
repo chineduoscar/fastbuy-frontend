@@ -111,7 +111,7 @@ const Home = () => {
                     onClick={() => handleOrder(item.id)}
                     className="bg-emerald-600 hover:bg-emerald-700 text-white text-sm font-semibold px-4 py-2 rounded-xl transition-colors shadow-sm cursor-pointer"
                   >
-                    Order Now
+                    {"Order Now"}
                   </button>
                 </div>
               </div>
